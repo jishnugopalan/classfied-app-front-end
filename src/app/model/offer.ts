@@ -1,6 +1,12 @@
 export class Offer{
     constructor(
-        public offer_name:string,
-        public offer_description:string
+        public id:number,
+        public name:string,
+        public description:string,
+        public category:string,
+        public openDate:Date,
+        public engagedDate:Date,
+        public closedDate:Date,
+        public likes:number
     ){}
 }

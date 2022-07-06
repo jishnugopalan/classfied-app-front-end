@@ -1,0 +1,79 @@
+<div class="container">
+    <h1 class="text-center">Edit Offer</h1>
+    <div class="alert alert-danger" *ngIf="pageError!=''">{{pageError}}</div>
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+        <table class="table">
+           
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td>{{offer.id}}</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                      
+                     
+
+
+                        <input type="text" formControlName="name" class="form-control" [(ngModel)]="offer.name">
+                       
+                        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="text-danger">
+                            <div *ngIf="name?.hasError('required')">
+                                name of the offer is required.
+                            </div>
+                            <div *ngIf="name?.hasError('minlength')">
+                                name must be at least 3 characters long.
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>
+                        <input type="textbox" formControlName="description" class="form-control" [(ngModel)]="offer.description">
+                     
+                        <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="text-danger">
+                            <div *ngIf="description?.hasError('required')">
+                                Description is required.
+                            </div>
+                            <div *ngIf="description?.hasError('minlength')">
+                                Description must be at least 10 characters long.
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td>
+                        <select class="form-control" formControlName="category" [(ngModel)]="offer.category">
+                            <option>Electronics</option>
+                            <option>Fasion</option>
+                            <option>Furniture</option>
+                            <option>Accessories</option>
+                            <option>Others</option>
+                            </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Posted on</td>
+                    <td>{{offer.openDate | date:'longDate'}}</td>
+                </tr>
+                <tr>
+                    <td>Engaged on</td>
+                    <td>{{offer.engagedDate==null && offer.closedDate == null?'not yet':'engaged'}}</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>{{offer.closedDate == null ? 'open':'closed'}}</td>
+                </tr>
+                <tr>
+                    <td>Likes</td>
+                    <td>{{offer.likes}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" [disabled]="!offerForm.valid || !offerForm.touched || !offerForm.dirty"> Submit</button> &nbsp; &nbsp;
+       
+    </form>
+</div>

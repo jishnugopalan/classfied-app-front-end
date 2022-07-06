@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="alert alert-danger" *ngIf="pageError!=''">{{pageError}}</div>
+
+    <h1 class="text-center">My Offers</h1>
+    <div class="offers-content">
+        <div class="row">
+
+            <!-- if no offers are present-->
+            <div *ngIf="offers.length==0">
+                <h1 style="font-weight: 100;">No Offers Found</h1>
+            </div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Offer Name</th>
+                    <th scope="col">Posted on</th>
+                    <th scope="col">Engaged</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Likes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  *ngFor="let offer of offers">
+                    <th>{{offer.name}}</th>
+                    <td>{{offer.openDate | date:'longDate'}}</td>
+                    <td>{{offer.engagedDate==null && offer.closedDate == null?'not yet':'engaged'}}</td>
+                    <td>{{offer.closedDate == null ? 'open':'closed'}}</td>
+                    <td>{{offer.category}}</td> 
+                    <td>{{offer.likes}}</td>
+                    <td> <a [routerLink]="['/offer-details',offer.id]" class="btn btn-success">Open</a>
+                       </td>
+                       <td>
+                        <a [routerLink]="['/edit-offer',offer.id]" class="btn btn-danger">Edit</a>
+                       </td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+
+          
+        </div>
+    </div>
+</div>

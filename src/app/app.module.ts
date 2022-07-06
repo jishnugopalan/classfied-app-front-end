@@ -10,6 +10,9 @@ import {HttpClientModule} from "@angular/common/http";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { AddOfferComponent } from './add-offer/add-offer.component';
+import { MyOfferComponent } from './my-offer/my-offer.component';
+import { OfferDetailsComponent } from './offer-details/offer-details.component';
+import { OfferEditComponent } from './offer-edit/offer-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +20,10 @@ import { AddOfferComponent } from './add-offer/add-offer.component';
     LoginComponent,
     DashboardComponent,
     NavigationBarComponent,
-    AddOfferComponent
+    AddOfferComponent,
+    MyOfferComponent,
+    OfferDetailsComponent,
+    OfferEditComponent
   ],
   imports: [
     BrowserModule,
