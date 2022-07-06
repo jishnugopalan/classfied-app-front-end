@@ -9,13 +9,15 @@ import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { AddOfferComponent } from './add-offer/add-offer.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     LoginComponent,
     DashboardComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    AddOfferComponent
   ],
   imports: [
     BrowserModule,
