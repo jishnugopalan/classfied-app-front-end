@@ -1,13 +1,72 @@
 <div class="container">
     <h1 class="text-center">Employee Dashboard</h1>
-    <!-- <a class="btn btn-danger" href="/add-offer">Add Offer</a>
-    <a href="/my-offer">Add Offer</a> -->
-    <div class="col=md-4">
-        <a href="/add-offer" class="btn btn-outline-primary btn-lg btn-block">Add Offer</a>
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="col-md-4">
+                <a href="/add-offer" class="btn btn-outline-primary btn-lg btn-block">Add Offer</a>
+            </div>
+            <br>
+            <div class="col-md-4">
+                <a href="/my-offer" class="btn btn-outline-primary btn-lg btn-block">My Offers</a>
+            </div>
+    
+        </div>
+        <div class="col-md-8">
+           
+            <div class="row">
+                <div class="col-md-3">
+                    <select class="form-control" (change)="onCategoryChange()" #category>
+                        <option selected disabled>Filter by category</option>
+                        <option>Electronics</option>
+                        <option>Fashion</option>
+                        <option>Furniture</option>
+                        <option>Accessories</option>
+                        <option>Others</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <div class='input-group'>
+                        <input type="text" class='form-control' placeholder="Filter by posted-date (YYYY-MM-DD)" #postedDate>
+                        <div class="input-group-append ">
+                            <button class="btn btn-outline-primary" (click)="filterByPostedDate()">search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <button class="btn btn-outline-primary" (click)="filterByTopLikes()">Filter by top likes</button>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="alert alert-danger" *ngIf="pageError!='' && showError"> {{pageError}}
+                    <button class="material-icons" style="float:right" (click)="closebar()">close</button>
+                </div>
+                <div class="col-md-6" *ngFor="let offer of offers ">
+                    <div  class="offer-content">
+                        <h3 class="card-title bg-success text-light">{{offer.name}}</h3>
+                        <p class="card-text ">
+                            <div class="d-flex flex-column ">
+                                <div class="p-2 "><b>Posted on</b>: {{offer.openDate | date:'longDate'}}</div>
+                                <div class="p-2 "><b>Engaged</b>: {{offer.engagedDate==null && offer.closedDate == null?'not yet':'engaged'}}
+                                </div>
+                                <div class="p-2"><b>Status</b>: {{offer.closedDate == null ? 'open':'closed'}}</div>
+                                <div class="p-2"><b>Category:</b> {{offer.category}}</div>
+                                <div class="p-2"><b>Likes:</b> {{offer.likes}}</div>
+                            </div><br>
+                            <a [routerLink]="['/offer-details',offer.id]" class="btn btn-success">Open</a>
+                    </div>
+                </div>
+            </div>
+           
+            
+    
+        </div>
+       
+
     </div>
-    <br>
-    <div class="col=md-4">
-        <a href="/my-offer" class="btn btn-outline-primary btn-lg btn-block">My Offers</a>
-    </div>
+   
    
 </div>

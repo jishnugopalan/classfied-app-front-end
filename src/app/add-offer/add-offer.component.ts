@@ -22,7 +22,7 @@ export class AddOfferComponent implements OnInit {
   token:any
   offerForm: FormGroup = new FormGroup({})
 
-  constructor(private offerService:OfferService,private route:Router) { }
+  constructor(private offerService:OfferService,private router:Router) { }
 
   get name() { return this.offerForm.get('name') }
   get description() { return this.offerForm.get('description') }
@@ -39,6 +39,7 @@ export class AddOfferComponent implements OnInit {
     console.log(this.offer)
     this.offerService.addOffer(this.token, this.offer).subscribe((data: messageResponse) => {
       console.log(data)
+      this.router.navigateByUrl("/my-offer")
     },error=>{
       console.log(error)
       this.pageError = "We encountered an error please try again later"

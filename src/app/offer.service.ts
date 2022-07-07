@@ -34,4 +34,36 @@ export class OfferService {
     }
     return this.http.post<messageResponse>(this.offerservice + '/editOffer', offer, options)
   }
+  getOffers(token: string, category: string) {
+    let options = {
+      headers: { "Authorization": "Bearer " + token}
+    }
+    return this.http.get<Offer[]>(this.offerservice + "/getOfferByCategory/" + category, options)
+  }
+  getOffersByPostedDate(token: string, postedDate: string) {
+    let options = {
+      headers: { "Authorization": "Bearer " + token }
+    }
+    return this.http.get<Offer[]>(this.offerservice + "/getOfferByPostedDate/" + postedDate, options)
+  }
+
+  saveLike(token: string, id: number) {
+    let options = {
+      headers: { "Authorization": "Bearer " + token }
+    }
+    return this.http.post(this.employeeserviceUrl + "/likeOffer/" + id, null, options)
+  }
+  engageOffer(token: String, offerId: number, empId: number) {
+    let options = {
+      headers: { "Authorization": "Bearer " + token },
+      params: { "offerId": offerId, "employeeId": empId }
+    }
+    return this.http.post<messageResponse>(this.offerservice + "/engageOffer", null, options)
+  }
+  getOffersByTopLikes(token: string) {
+    let options = {
+      headers: { "Authorization": "Bearer " + token }
+    }
+    return this.http.get<Offer[]>(this.offerservice + "/getOfferByTopLikes", options)
+  }
 }

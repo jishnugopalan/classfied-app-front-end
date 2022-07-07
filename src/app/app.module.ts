@@ -13,6 +13,8 @@ import { AddOfferComponent } from './add-offer/add-offer.component';
 import { MyOfferComponent } from './my-offer/my-offer.component';
 import { OfferDetailsComponent } from './offer-details/offer-details.component';
 import { OfferEditComponent } from './offer-edit/offer-edit.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { OfferEditComponent } from './offer-edit/offer-edit.component';
     AddOfferComponent,
     MyOfferComponent,
     OfferDetailsComponent,
-    OfferEditComponent
+    OfferEditComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
