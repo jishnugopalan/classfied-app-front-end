@@ -24,12 +24,17 @@ export class MyOfferComponent implements OnInit {
         console.log(data)
          this.offers = data;
        },error=>{
-         console.log(error)
+         console.log(error.status)
  
          if(error.status==404){
            this.offers = []
-           this.pageError = "No offers found , to add a new offer click on Post an offer"
+           this.pageError = "No offers found"
          }
+         else if(error.status==500){
+          this.offers = []
+          this.pageError = "No offers found"
+        }
+       
  
       
          else{

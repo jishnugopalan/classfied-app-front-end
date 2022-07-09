@@ -15,6 +15,7 @@ import { OfferDetailsComponent } from './offer-details/offer-details.component';
 import { OfferEditComponent } from './offer-edit/offer-edit.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { ContactComponent } from './contact/contact.component';
     OfferDetailsComponent,
     OfferEditComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    MyprofileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Employee } from './model/Employee';
 import { messageResponse } from './model/messageResponse';
 import { Offer } from './model/offer';
 
@@ -65,5 +66,11 @@ export class OfferService {
       headers: { "Authorization": "Bearer " + token }
     }
     return this.http.get<Offer[]>(this.offerservice + "/getOfferByTopLikes", options)
+  }
+  getProfile(token: String, id: number) {
+    let options = {
+      headers: { "Authorization": "Bearer " + token }
+    }
+    return this.http.get<Employee>(this.employeeserviceUrl + "/viewProfile/" + id, options)
   }
 }

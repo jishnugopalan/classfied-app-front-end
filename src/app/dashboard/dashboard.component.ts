@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit {
        },
          error => {
            console.log(error);
-           this.pageError = "We encountered some error please try again later"
+           this.pageError = "No offers found"
            this.showError = true
          });
      }
