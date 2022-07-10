@@ -40,7 +40,7 @@
             </tbody>
         </table>
       
-        <span class="material-icons" [ngStyle]="{'color':isLiked?'red':'rgb(71, 69, 69)'}" (click)="likedIt()">Like</span>
+        <span class="material-icons" [ngStyle]="{'color':isLiked?'red':'rgb(71, 69, 69)'}" (click)="likedIt()"><i class="bi bi-heart-fill"></i></span>
         <button *ngIf="isLiked" (click)="submitLike()" class="btn btn-primary">Submit</button>
         <br><br>
         

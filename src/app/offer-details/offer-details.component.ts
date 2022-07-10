@@ -4,6 +4,7 @@ import { messageResponse } from '../model/messageResponse';
 import { Offer } from '../model/offer';
 import { OfferService } from '../offer.service';
 
+
 @Component({
   selector: 'app-offer-details',
   templateUrl: './offer-details.component.html',
