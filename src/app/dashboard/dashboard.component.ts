@@ -70,6 +70,16 @@ export class DashboardComponent implements OnInit {
           console.log(error);
         });
   }
+  showRecentlyLiked() {
+    if (this.token != null)
+      this.offerService.getRecentlyLiked(this.token).subscribe((data: Offer[]) => {
+        this.offers = data
+      }, error => {
+        console.log(error)
+        this.pageError = "We encountered some error please try again later"
+        this.showError = true;
+      })
+  }
   ngOnInit(): void {
      //get the token
      this.token = localStorage.getItem('token');

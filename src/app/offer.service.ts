@@ -73,4 +73,10 @@ export class OfferService {
     }
     return this.http.get<Employee>(this.employeeserviceUrl + "/viewProfile/" + id, options)
   }
+  getRecentlyLiked(token: string) {
+    let options = {
+      headers: { "Authorization": "Bearer " + token },
+    }
+    return this.http.get<Offer[]>(this.employeeserviceUrl + "/recentlyLiked", options)
+  }
 }
