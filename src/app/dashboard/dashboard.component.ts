@@ -74,6 +74,7 @@ export class DashboardComponent implements OnInit {
     if (this.token != null)
       this.offerService.getRecentlyLiked(this.token).subscribe((data: Offer[]) => {
         this.offers = data
+        console.log(data)
       }, error => {
         console.log(error)
         this.pageError = "We encountered some error please try again later"
@@ -86,7 +87,7 @@ export class DashboardComponent implements OnInit {
 
      //retrive the offers (default category electronics)
      if (this.token != null) {
-       this.offerService.getOffers(this.token, "electronics").subscribe((data: Offer[]) => {
+       this.offerService.getOffers(this.token, "Electronics").subscribe((data: Offer[]) => {
          console.log(data);
          this.offers = data;
        },

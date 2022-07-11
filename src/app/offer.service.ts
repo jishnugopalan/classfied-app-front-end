@@ -23,6 +23,7 @@ export class OfferService {
     }
     return this.http.get<Offer[]>(this.employeeserviceUrl + "/viewEmployeeOffers/" + id, options)
   }
+  
   getOfferDetailsById(token: string, id: number) {
     let options = {
       headers: { "Authorization": "Bearer " + token }
