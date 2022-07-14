@@ -87,7 +87,7 @@ export class DashboardComponent implements OnInit {
 
      //retrive the offers (default category electronics)
      if (this.token != null) {
-       this.offerService.getOffers(this.token, "Electronics").subscribe((data: Offer[]) => {
+       this.offerService.getOffers(this.token, "electronics").subscribe((data: Offer[]) => {
          console.log(data);
          this.offers = data;
        },

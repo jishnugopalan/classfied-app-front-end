@@ -8,8 +8,8 @@ import { Offer } from './model/offer';
   providedIn: 'root'
 })
 export class OfferService {
-  offerservice= "http://localhost:8000/offer"
-  employeeserviceUrl = "http://localhost:8070/employee"
+  offerservice="http://localhost:8000/offer"
+  employeeserviceUrl ="http://localhost:8070/employee"
   constructor(private http: HttpClient) { }
   addOffer(token: String, offer: Offer) {
     let options = {
